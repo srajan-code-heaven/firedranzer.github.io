@@ -424,7 +424,7 @@
     <!-- testimonial Section Start -->
 
     <!-- Rontact Section Start -->
-    <section id="request" class="section">
+     <section id="request" class="section">
       <div class="container">
         <div class="row justify-content-md-center">          
           <div class="col-md-9 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">            
@@ -433,46 +433,41 @@
                 <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Request <span> Link </span></h2>
                 <hr class="lines wow zoomIn" data-wow-delay="0.3s">
               </div>
-              <form id="contactForm">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
-                      <div class="help-block with-errors"></div>
-                    </div>                                 
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
-                      <div class="help-block with-errors"></div>
-                    </div> 
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <input type="text" placeholder="Your Mobile Number" id="mobnumber" class="form-control" name="name" required data-error="Please enter your Mobile Number">
-                      <div class="help-block with-errors"></div>
-                    </div> 
-                  </div>
-                   <div class="col-md-12">
-                    <div class="form-group">
-                      <input type="text" placeholder="Subject" id="msg_subject" class="form-control" required data-error="Please enter your subject">
-                      <div class="help-block with-errors"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group"> 
-                      <textarea class="form-control" placeholder="Your Message" rows="11" data-error="Write your message" required></textarea>
-                      <div class="help-block with-errors"></div>
-                    </div>
-                    <div class="submit-button text-center">
-                      <button class="btn btn-common" id="submit" type="submit">Send Message</button>
-                      <div id="msgSubmit" class="h3 text-center hidden"></div> 
-                      <div class="clearfix"></div> 
-                    </div>
-                  </div>
-                </div>            
-              </form>
-            </div>
+      <form>
+      <div id="contact-form" class="form-container" data-form-container>
+    
+      <div class="input-container">
+        <div class="row">
+          <span class="req-input" >
+            <span class="input-status" data-toggle="tooltip" data-placement="top" title="Input Your First and Last Name."> </span>
+            <input type="text" data-min-length="8" placeholder="Full Name">
+          </span>
+        </div>
+        <div class="row">
+          <span class="req-input">
+            <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Your Email."> </span>
+            <input type="email" placeholder="Email">
+          </span>
+        </div>
+        <div class="row">
+          <span class="req-input">
+            <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Your Phone Number."> </span>
+            <input type="tel" placeholder="Phone Number">
+          </span>
+        </div>
+        <div class="row">
+          <span class="req-input message-box">
+            <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Include a Message."> </span>
+            <textarea type="textarea" data-min-length="10" placeholder="Message"></textarea>
+          </span>
+        </div>
+        <div class="row submit-row">
+          <button type="button" class="btn btn-block submit-form">Submit</button>
+        </div>
+      </div>
+      </div>
+      </form>
+         </div>
           </div>
         </div>
       </div>
