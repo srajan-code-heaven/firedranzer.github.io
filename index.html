@@ -39,7 +39,7 @@
         var email = $('#email').val();
         var mobile = $('#mobile').val();
         var message = $('#message').val();
-    }
+  
       $.ajax({
         url:"https://docs.google.com/forms/d/e/1FAIpQLScYJzYwUzdOZHlWazQbsmCGPs_qZlHtZTIXnNxRLpIvOKBuQQ/formResponse",data:{"entry.1363244990":name,"entry.1263736974":email,"entry.712908767":mobile,"entry.400796171":message},type:"POST",dataType:"xml",statusCode: {0:function(){
           windows.location.replace("response.html");
@@ -47,6 +47,7 @@
         }
       });
 
+      }
       }
     </script>
   </head>
