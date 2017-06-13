@@ -28,12 +28,18 @@
     <!-- Javascript Function to post data on Spreadsheet -->
     <script>
       function postContactToGoogle(){
-        alert("Request Submitted Successfully");
+    
+    if( $('#name').val()=="" && $('#email').val()=="" && $('#mobile').val()=="" && $('#message').val()=="")
+        {
+            alert("Form fields Empty");
+        }
+    else
+    {alert("Request Submitted Successfully");
         var name = $('#name').val();
         var email = $('#email').val();
         var mobile = $('#mobile').val();
         var message = $('#message').val();
-
+    }
       $.ajax({
         url:"https://docs.google.com/forms/d/e/1FAIpQLScYJzYwUzdOZHlWazQbsmCGPs_qZlHtZTIXnNxRLpIvOKBuQQ/formResponse",data:{"entry.1363244990":name,"entry.1263736974":email,"entry.712908767":mobile,"entry.400796171":message},type:"POST",dataType:"xml",statusCode: {0:function(){
           windows.location.replace("response.html");
@@ -246,27 +252,27 @@
     
       <div class="input-container">
         <div class="row">
+          <span class="req-input message-box">
+            <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Include a Message."> </span>
+            <textarea id="message" name="message" type="textarea" data-min-length="10" placeholder="Link/Product Description (Ex-Apple Macbook Pro)"></textarea>
+          </span>
+        </div>
+        <div class="row">
           <span class="req-input" >
             <span class="input-status" data-toggle="tooltip" data-placement="top" title="Input Your First and Last Name."> </span>
-            <input id="name" name="name" type="text" data-min-length="8" placeholder="Full Name">
+            <input id="name" name="name" type="text" data-min-length="8" placeholder="Full Name (Ex-Harry Potter)">
           </span>
         </div>
         <div class="row">
           <span class="req-input">
             <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Your Email."> </span>
-            <input id="email" name="email" type="email" placeholder="Email">
+            <input id="email" name="email" type="email" placeholder="Email (Ex-harryjamespotter@hogwarts.com)">
           </span>
         </div>
         <div class="row">
           <span class="req-input">
             <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Your Phone Number."> </span>
-            <input id="mobile" name="mobile" type="tel" placeholder="Phone Number">
-          </span>
-        </div>
-        <div class="row">
-          <span class="req-input message-box">
-            <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Include a Message."> </span>
-            <textarea id="message" name="message" type="textarea" data-min-length="10" placeholder="Link of the product"></textarea>
+            <input id="mobile" name="mobile" type="tel" placeholder="Phone Number (Ex-1234567890)">
           </span>
         </div>
         <div class="row submit-row">
