@@ -364,3 +364,13 @@
 	-o-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
 }
+
+.embed_vedio{
+	text-align: center;
+}
+
+.vedioborder{
+	border: 5px solid #4676fa;
+	padding: 5px 5px 0px 5px;
+	display: inline-block;
+}
