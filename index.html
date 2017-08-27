@@ -152,7 +152,7 @@
         <div class="row">
           <span class="req-input">
             <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Your Phone Number."> </span>
-            <input id="mobile" name="phoneno" type="tel" placeholder="Phone Number (Ex-1234567890)">
+            <input id="phoneno" name="phoneno" type="tel" placeholder="Phone Number (Ex-1234567890)">
           </span>
         </div>
         <div class="row submit-row">
@@ -415,12 +415,12 @@ $("#response").slideDown("slow");
     {alert("Request Submitted Successfully,Stay calm,You will be contacted within few hours");
         var name = $('#name').val();
         var email = $('#email').val();
-        var mobile = $('#mobile').val();
+        var phoneno = $('#phoneno').val();
         var message = $('#message').val();
         var vendor = $('#vendor').val();
   
       $.ajax({
-        url:"https://docs.google.com/forms/d/e/1FAIpQLScYJzYwUzdOZHlWazQbsmCGPs_qZlHtZTIXnNxRLpIvOKBuQQ/formResponse",data:{"entry.1143251348":vendor,"entry.1363244990":name,"entry.1263736974":email,"entry.712908767":mobile,"entry.400796171":message},type:"POST",dataType:"xml",statusCode: {0:function(){
+        url:"https://docs.google.com/forms/d/e/1FAIpQLScYJzYwUzdOZHlWazQbsmCGPs_qZlHtZTIXnNxRLpIvOKBuQQ/formResponse",data:{"entry.1143251348":vendor,"entry.1363244990":name,"entry.1263736974":email,"entry.712908767":phoneno,"entry.400796171":message},type:"POST",dataType:"xml",statusCode: {0:function(){
           windows.location.replace("response.html");
         },200:function(){windows.location.replace("response.html");}
         }
