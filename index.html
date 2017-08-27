@@ -121,46 +121,45 @@
                <!--  <div data-WRID="WRID-149907526541069124" data-widgetType="searchBar" data-class="affiliateAdsByFlipkart" height="55" width="660"></div>
                        <script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script> -->
               
-              <form>
+     <form id="myform" type="post">
       <div id="contact-form" class="form-container" data-form-container>
       <div class="input-container">        
          <div class="row">
-            <h6><center> Feel Free to Contact us : <b>Srajan - 9752435602 | Rupesh - 9479768157 <center></b></h6>
+            <h6><center> Feel Free to Contact us : <b>Srajan - 9752435602 | Rupesh - 9479768157 |  Vandana - 9630003155<center></b></h6>
         </div>
         <div class="row">
           <span class="req-input message-box">
             <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Include a Message."> </span>
-            <textarea id="message" name="message" type="textarea" data-min-length="10" placeholder="Link/Product Description (Ex-Samsung on-next mobile phone)"></textarea>
+            <textarea id="message" name="pdesc" type="textarea" data-min-length="10" placeholder="Link/Product Description (Ex-Apple Macbook Pro)"></textarea>
           </span>
         </div><br />
        <div class="row">
-            <div class="col-md-4"><h6><label class="radio-inline"><input type="radio" name="optradio" value="Flipkart"> Flipkart</label></h6></div>
-            <div class="col-md-4"><h6><label class="radio-inline"><input type="radio" name="optradio" value="Amazon"> Amazon</label></h6></div>
-            <div class="col-md-4"><h6><label class="radio-inline"><input type="radio" name="optradio" value="Snapdeal"> Snapdeal</label></h6></div>
-       </div>
+            <div class="col-md-6"><h6><label class="radio-inline"><input type="radio" name="optradio"> Flipkart</label></h6></div>
+            <div class="col-md-6"><h6><label class="radio-inline"><input type="radio" name="optradio"> Amazon</label></h6></div>
+         </div>
         <div class="row">
           <span class="req-input" >
             <span class="input-status" data-toggle="tooltip" data-placement="top" title="Input Your First and Last Name."> </span>
-            <input id="name" name="name" type="text" data-min-length="8" placeholder="Full Name (Ex-Srajan Gupta)">
+            <input id="name" name="name" type="text" data-min-length="8" placeholder="Full Name (Ex-Harry Potter)">
           </span>
         </div>
         <div class="row">
           <span class="req-input">
             <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Your Email."> </span>
-            <input id="email" name="email" type="email" placeholder="Email (Ex-srajangupta5@gmail.com)">
+            <input id="email" name="email" type="email" placeholder="Email (Ex-harryjamespoter@hogwarts.com)">
           </span>
         </div>
         <div class="row">
           <span class="req-input">
             <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Your Phone Number."> </span>
-            <input id="mobile" name="mobile" type="tel" placeholder="Phone Number (Ex-9752435602)">
+            <input id="mobile" name="phoneno" type="tel" placeholder="Phone Number (Ex-1234567890)">
           </span>
         </div>
         <div class="row submit-row">
-          <button id="btn_id" type="button" class="btn btn-block submit-form" onclick="postContactToGoogle()">Submit</button>
+          <button id="btn_id" type="button" name="btn" value="Submit" class="btn btn-block submit-form" onclick="postContactToGoogle()">Submit</button>
         </div>
      <div class="row">
-           <h6>Having problems with the process watch this video.<a href="https://youtu.be/oCtAle7_PII" target="_blank">Click here</a></h6>
+           <h6>Having problems with the process watch this video.<a href="https://youtu.be/oCtAle7_PII">Click here</a></h6>
         </div>
       </div>
       </div>
@@ -357,6 +356,53 @@
     <script src="js/submit_form.js"></script>
     <script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 
+        
+        
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+  $("#msg").hide();
+	  $("#btn_id").click(function(e){
+	 $("#response").slideUp("slow");
+	 //alert("hi");
+	 var jsonData = {};
+	 
+   var formData = $("#myform").serializeArray();
+  // console.log(formData);
+   
+   $.each(formData, function() {
+        if (jsonData[this.name]) {
+           if (!jsonData[this.name].push) {
+               jsonData[this.name] = [jsonData[this.name]];
+           }
+           jsonData[this.name].push(this.value || '');
+       } else {
+           jsonData[this.name] = this.value || '';
+       }
+	       
+	   
+   });
+   console.log(jsonData);
+	$.ajax(
+	{
+		url : "http://104.236.102.124/buykr/create_product.php",
+		type: "POST",
+		data : jsonData,
+		success:function(data, textStatus, jqXHR) 
+		{
+		$("#response").text("");
+$("#response").append(data);
+$("#response").slideDown("slow");
+		}
+	});
+	$("#msg").show("slow");
+	 
+    e.preventDefault();	
+});
+});
+</script>
+        
+        
     <!-- Javascript Function to post data on Spreadsheet -->
     <script>
       function postContactToGoogle(){
